@@ -45,7 +45,7 @@
         #place(
           dy: 20mm,
           image(
-            "oslomet-logo-header.svg",
+            "images/oslomet-logo-header.svg",
             height: 130%,
           )
         )
@@ -56,7 +56,7 @@
         #place(
           dy: 2mm,
           image(
-            "oslomet-logo-footer.svg",
+            "images/oslomet-logo-footer.svg",
             height: 7.5mm,
           ),
         )
@@ -239,7 +239,7 @@
           grid.cell(align: left, colspan: ncols, signaturestring),
           ..authors.map(author =>
               align(left)[
-                #author.name #if author.orcid != "" [#box(height: 10pt, baseline: 10%, link("https://orcid.org/" + author.orcid)[#image("orcid.svg")])] \
+                #author.name #if author.orcid != "" [#box(height: 10pt, baseline: 10%, link("https://orcid.org/" + author.orcid)[#image("images/orcid.svg")])] \
                 #link("mailto:" + author.email.replace("\\",""))
               ]
           )

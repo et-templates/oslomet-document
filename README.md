@@ -2,7 +2,7 @@
 
 This is an unofficial Quarto template that allows you to create generic OsloMet documents. As of now, it is designed to generate Typst PDFs, and is inspired by an official OsloMet template for Microsoft Word.
 
-In the future, additional templates might be added, and a port to Typst might also be created.
+In the future, additional templates might be added (and organised along the lines of [https://github.com/quarto-ext/typst-templates](https://github.com/quarto-ext/typst-templates)), and a port to Typst might also be created.
 
 The template has been tailored for Norwegian.
 
@@ -12,7 +12,7 @@ The template has been tailored for Norwegian.
 You can use this extension as a template to create a new document. Use the following command in your terminal (e.g., in RStudio):
 
 ```bash
-quarto use template EirikTengesdal/oslomet-templates/document
+quarto use template et-templates/oslomet-document
 ```
 
 This will install the format extension and create an example QMD file
@@ -21,7 +21,7 @@ that you can use as a starting place for your document.
 ### Option (2): Add the template for existing documents
 
 ```bash
-quarto add template EirikTengesdal/oslomet-templates/document
+quarto add template et-templates/oslomet-document
 ```
 
 ### Other installation options

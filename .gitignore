@@ -1,7 +1,5 @@
+template_files
+template.html
+README.html
+README_files
 .Rproj.user
-.Rhistory
-.RData
-.Ruserdata
-test.qmd
-test.html
-test_files
