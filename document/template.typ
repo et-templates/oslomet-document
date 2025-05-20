@@ -409,7 +409,7 @@
         grid.cell(align: left, colspan: ncols, signaturestring),
         ..authors.map(author =>
             align(left)[
-              #author.name#if author.orcid != "" [#box(height: 10pt, baseline: 10%, link("https://orcid.org/" + author.orcid)[#image("orcid.svg")])] \
+              #author.name #if author.orcid != "" [#box(height: 10pt, baseline: 10%, link("https://orcid.org/" + author.orcid)[#image("orcid.svg")])] \
               #link("mailto:" + author.email.replace("\\",""))
             ]
         )
