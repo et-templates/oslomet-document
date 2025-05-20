@@ -1,0 +1,14 @@
+---
+title: 
+date: 2025-05-19
+date-format: "DD.MM.YYYY"
+
+lang: nb
+
+authors:
+  - name: 
+    email:
+
+format:
+  document-typst: default
+---
