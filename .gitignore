@@ -3,3 +3,4 @@ template.html
 README.html
 README_files
 .Rproj.user
+*.Rproj
