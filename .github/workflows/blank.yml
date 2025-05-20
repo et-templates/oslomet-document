@@ -25,12 +25,20 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v4
 
-      # Runs a single command using the runners shell
-      - name: Run a one-line script
-        run: echo Hello, world!
-
-      # Runs a set of commands using the runners shell
-      - name: Run a multi-line script
-        run: |
-          echo Add other actions to build,
-          echo test, and deploy your project.
+      - name: PDF To Markdown workflow
+        # You may pin to the exact commit or the version.
+        # uses: northy/pdf-to-markdown-workflow@36e09e5bbc2bd18c7d7d08e134cdf59c35cca6f2
+        uses: northy/pdf-to-markdown-workflow@v1.2
+        with:
+          # Input PDF file
+          pdf_input: example.pdf
+          # Root output folder
+          #root_folder: # optional, default is 
+          # Output pngs folder
+          #output_folder: # optional, default is output_pngs
+          # Source markdown file
+          source_md: README.md
+          # Output markdown file
+          #output_md: # optional, default is README.md
+          # Line end
+          #line_end: # optional, default is ---\n
