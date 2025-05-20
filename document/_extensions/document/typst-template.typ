@@ -228,21 +228,25 @@
       [OsloMet – storbyuniversitetet]
     }
     
-    let count = authors.len()
-    let ncols = calc.min(count, 3)
-    figure(
-      grid(
-        columns: (1fr,) * ncols,
-        row-gutter: 0.65em,//1.5em,
-        //grid.header(repeat: false, signaturestring),
-        grid.cell(align: left, colspan: ncols, signaturestring),
-        ..authors.map(author =>
-            align(left)[
-              #author.name #if author.orcid != "" [#box(height: 10pt, baseline: 10%, link("https://orcid.org/" + author.orcid)[#image("orcid.svg")])] \
-              #link("mailto:" + author.email.replace("\\",""))
-            ]
+    if authors.len() > 0 {
+      let count = authors.len()
+      let ncols = calc.min(count, 3)
+      figure(
+        grid(
+          columns: (1fr,) * ncols,
+          row-gutter: 0.65em,//1.5em,
+          //grid.header(repeat: false, signaturestring),
+          grid.cell(align: left, colspan: ncols, signaturestring),
+          ..authors.map(author =>
+              align(left)[
+                #author.name #if author.orcid != "" [#box(height: 10pt, baseline: 10%, link("https://orcid.org/" + author.orcid)[#image("orcid.svg")])] \
+                #link("mailto:" + author.email.replace("\\",""))
+              ]
+          )
         )
       )
-    )
+    } else {
+      [#signaturestring]
+    }
   }
 }
