@@ -6,6 +6,11 @@ In the future, additional templates might be added (and organised along the line
 
 The template has been tailored for Norwegian.
 
+## Example PDF
+View an example of the output PDF here:
+
+![](example.pdf)
+
 ## Installation
 ### Option (1): Install the template for new documents
 
