@@ -2,10 +2,11 @@
 title: Uoffisiell mal for OsloMet-dokumenter
 #hide-signature: true
 #hide-date: true
-#date: 2025-05-19
-#date: today
-#date-format: "DD.MM.YYYY"
+date: 2025-05-19
+date-format: "D. MMM YYYY"
 #date-format-typst: "[year]-[month]-[day]"
+
+lang: nb
 
 authors:
   - name: Navn Navnesen
@@ -16,6 +17,7 @@ authors:
 
 format:
   document-typst: default
+    #keep-typ: true
 ---
 
 ## Innledning
