@@ -20,7 +20,7 @@ that you can use as a starting place for your document.
 ### Option (2): Add the template for existing documents
 
 ```bash
-quarto add template et-templates/oslomet-document
+quarto add et-templates/oslomet-document
 ```
 
 ### Other installation options
