@@ -7,7 +7,6 @@
   signature: true,
   show-date: true,
   authors: (),
-  //affiliations: (),
   date: "",
   dateformat: "",
   abstract: "Dette er et sammendrag",
@@ -150,48 +149,7 @@
       it.body
     )
   )
-  
-  // utility function: go through all authors and check their affiliations
-  // purpose is to group authors with the same affiliations
-  // returns a dict with two keys:
-  // "authors" (modified author array)
-  // "affiliations": array with unique affiliations
-  let parse_authors(authors) = {
-    let affiliations = ()
-    let parsed_authors = ()
-    let corresponding = ()
-    let pos = 0
-    for author in authors {
-      author.insert("affiliation_parsed", ())
-      if "affiliation" in author {
-        if type(author.affiliation) == str {
-          author.at("affiliation") = (author.affiliation, )
-        }
-        for affiliation in author.affiliation {
-          if affiliation not in affiliations {
-            affiliations.push(affiliation)
-          }
-          pos = affiliations.position(a => a == affiliation)
-          author.affiliation_parsed.push(pos)
-        }
-      } else {
-        // if author has no affiliation, just use the same as the previous author
-        author.affiliations_parsed.push(pos)
-      }
-      parsed_authors.push(author)
-      if "corresponding" in author {
-        if author.corresponding {
-          corresponding = author
-        }
-      }
-    }
-    (authors: parsed_authors,
-     affiliations: affiliations,
-     corresponding: corresponding)
-  }
-  
-  //let authors_parsed = parse_authors(authors)
-  
+    
   show link: set text(number-type: "lining", number-width: "tabular")
   
   show link: it => {
