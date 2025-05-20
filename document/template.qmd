@@ -15,9 +15,7 @@ authors:
     orcid: 0000-0003-0599-8925
 
 format:
-  #html: default
-  document-typst: #default
-    keep-typ: true
+  document-typst: default
 ---
 
 ## Innledning
