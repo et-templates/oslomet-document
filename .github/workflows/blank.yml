@@ -4,10 +4,8 @@ name: PDF to Markdown
 
 # Controls when the workflow will run
 on:
-  # Triggers the workflow on push or pull request events but only for the "main" branch
+  # Triggers the workflow on push events but only for the "main" branch
   push:
-    branches: [ "main" ]
-  pull_request:
     branches: [ "main" ]
 
   # Allows you to run this workflow manually from the Actions tab
@@ -41,4 +39,4 @@ jobs:
           # Output markdown file
           #output_md: # optional, default is README.md
           # Line end
-          #line_end: # optional, default is ---\n
+          line_end: \n # optional, default is ---\n
