@@ -9,7 +9,7 @@ The template has been tailored for Norwegian.
 ## Example PDF
 View an example of the output PDF here:
 
-![](example.pdf)
+<object data="example.pdf" width="1000" height="1000" type='application/pdf'/>
 
 ## Installation
 ### Option (1): Install the template for new documents
