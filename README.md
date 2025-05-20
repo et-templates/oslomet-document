@@ -106,4 +106,8 @@ hide-date: true
 View an example of the output [PDF](example.pdf) below:
 
 <!-- PDF-TO-MARKDOWN:START -->
+![Page 1](output_pngs/page1.png "Page 1")
+
+![Page 2](output_pngs/page2.png "Page 2")
+
 <!-- PDF-TO-MARKDOWN:END -->
