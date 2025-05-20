@@ -1,13 +1,10 @@
 ---
-title: 
-date: 2025-05-19
-date-format: "DD.MM.YYYY"
-
-lang: nb
+title: ""
 
 authors:
-  - name: 
-    email:
+  - name: ""
+    email: 
+    orcid: 
 
 format:
   document-typst: default
