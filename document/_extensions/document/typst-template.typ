@@ -1,38 +1,35 @@
 
-// This is an example typst template (based on the default template that ships
-// with Quarto). It defines a typst function named 'article' which provides
-// various customization options. This function is called from the 
-// 'typst-show.typ' file (which maps Pandoc metadata function arguments)
-//
-// If you are creating or packaging a custom typst template you will likely
-// want to replace this file and 'typst-show.typ' entirely. You can find 
-// documentation on creating typst templates and some examples here: 
-//   - https://typst.app/docs/tutorial/making-a-template/
-//   - https://github.com/typst/templates
-
+// Page margins are based on one of the official OsloMet templates. For now, the
+// template is only optimised for Norwegian and the A4 format, not `us-letter`.
 
 #let article(
-  title: none,
-  subtitle: none,
-  authors: none,
-  date: none,
-  abstract: none,
+  title: "Tittel",
+  signature: true,
+  authors: (),
+  //affiliations: (),
+  date: "",
+  dateformat: "",
+  abstract: "Dette er et sammendrag",
   abstract-title: none,
   cols: 1,
-  margin: (x: 1.25in, y: 1.25in),
-  paper: "us-letter",
-  lang: "en",
-  region: "US",
-  font: "linux libertine",
-  fontsize: 11pt,
+  margin: (top: 2.5cm, bottom: 2.5cm, left: 2.5cm, right: 2.5cm),
+  paper: "a4",
+  lang: "nb",
+  region: "NO",
+  font: "Arial",
+  fontsize: 10.5pt,
+  singlequotes: ("‘", "’"),
   title-size: 1.5em,
   subtitle-size: 1.25em,
-  heading-family: "linux libertine",
+  heading-family: "Arial",
   heading-weight: "bold",
   heading-style: "normal",
   heading-color: black,
   heading-line-height: 0.65em,
-  sectionnumbering: none,
+  link-color: rgb("#3282B8"),
+  text-number-type: "old-style",
+  text-number-width: "proportional",
+  sectionnumbering: "1.1.1",
   toc: false,
   toc_title: none,
   toc_depth: none,
@@ -41,88 +38,217 @@
 ) = {
   set page(
     paper: paper,
-    margin: margin,
-    numbering: "1",
+    margin: margin,  
+    header: context {
+      if counter(page).get().first() == 1 [
+        #place(
+          dy: 20mm,
+          image(
+            "oslomet-logo-header.svg",
+            height: 130%,
+          )
+        )
+      ]
+    },
+    footer: context {
+      if counter(page).get().first() == 1 [
+        #place(
+          dy: 2mm,
+          image(
+            "oslomet-logo-footer.svg",
+            height: 7.5mm,
+          ),
+        )
+      ] else [
+        #set text(
+          size: 8pt
+        )
+        \
+        OsloMet – side
+        #counter(page).display(
+          (num, max) => [#num av #max],
+          both: true
+        )
+      ]
+    }
   )
+  
   set par(justify: true)
+  
   set text(lang: lang,
            region: region,
            font: font,
            size: fontsize)
+  
+  set smartquote(
+    quotes: (
+      single: singlequotes,
+      double: auto
+    )
+  )
+  
   set heading(numbering: sectionnumbering)
-  if title != none {
-    align(center)[#block(inset: 2em)[
-      #set par(leading: heading-line-height)
-      #if (heading-family != none or heading-weight != "bold" or heading-style != "normal"
-           or heading-color != black or heading-decoration == "underline"
-           or heading-background-color != none) {
-        set text(font: heading-family, weight: heading-weight, style: heading-style, fill: heading-color)
-        text(size: title-size)[#title]
-        if subtitle != none {
-          parbreak()
-          text(size: subtitle-size)[#subtitle]
+  
+  let heading_sizes = (fontsize) => {
+    if fontsize == 12pt {
+      (
+        "title": 18pt,
+        "h1": 18pt,
+        "h2": 13pt,
+        "h3": 12pt,
+      )
+    } else if fontsize == 11pt {
+      (
+        "title": 18pt,
+        "h1": 16pt,
+        "h2": 12pt,
+        "h3": 11pt,
+      )
+    } else if fontsize == 10.5pt {
+      (
+        "title": 18pt,
+        "h1": 15pt,
+        "h2": 11pt,
+        "h3": 10.5pt,
+      )
+    } else {
+      (
+        "title": 1.1em,
+        "h1": 1.2em,
+        "h2": fontsize,
+        "h3": fontsize,
+      )
+    }
+  }
+  
+  let sizes = heading_sizes(fontsize)
+  
+  show heading.where(level:1): it => block(
+    text(
+      size: sizes.h1,
+      weight: "regular",
+      style: "normal",
+      it.body
+    )
+  )
+  
+  show heading.where(level:2): it => block(
+    text(
+      size: sizes.h2,
+      weight: "bold",
+      style: "normal",
+      it.body
+    )
+  )
+  
+  show heading.where(level:3): it => block(
+    text(
+      size: sizes.h3,
+      weight: "regular",
+      style: "italic",
+      it.body
+    )
+  )
+  
+  // utility function: go through all authors and check their affiliations
+  // purpose is to group authors with the same affiliations
+  // returns a dict with two keys:
+  // "authors" (modified author array)
+  // "affiliations": array with unique affiliations
+  let parse_authors(authors) = {
+    let affiliations = ()
+    let parsed_authors = ()
+    let corresponding = ()
+    let pos = 0
+    for author in authors {
+      author.insert("affiliation_parsed", ())
+      if "affiliation" in author {
+        if type(author.affiliation) == str {
+          author.at("affiliation") = (author.affiliation, )
+        }
+        for affiliation in author.affiliation {
+          if affiliation not in affiliations {
+            affiliations.push(affiliation)
+          }
+          pos = affiliations.position(a => a == affiliation)
+          author.affiliation_parsed.push(pos)
         }
       } else {
-        text(weight: "bold", size: title-size)[#title]
-        if subtitle != none {
-          parbreak()
-          text(weight: "bold", size: subtitle-size)[#subtitle]
+        // if author has no affiliation, just use the same as the previous author
+        author.affiliations_parsed.push(pos)
+      }
+      parsed_authors.push(author)
+      if "corresponding" in author {
+        if author.corresponding {
+          corresponding = author
         }
       }
-    ]]
-  }
-
-  if authors != none {
-    let count = authors.len()
-    let ncols = calc.min(count, 3)
-    grid(
-      columns: (1fr,) * ncols,
-      row-gutter: 1.5em,
-      ..authors.map(author =>
-          align(center)[
-            #author.name \
-            #author.affiliation \
-            #author.email
-          ]
-      )
-    )
-  }
-
-  if date != none {
-    align(center)[#block(inset: 1em)[
-      #date
-    ]]
-  }
-
-  if abstract != none {
-    block(inset: 2em)[
-    #text(weight: "semibold")[#abstract-title] #h(1em) #abstract
-    ]
-  }
-
-  if toc {
-    let title = if toc_title == none {
-      auto
-    } else {
-      toc_title
     }
-    block(above: 0em, below: 2em)[
-    #outline(
-      title: toc_title,
-      depth: toc_depth,
-      indent: toc_indent
-    );
-    ]
+    (authors: parsed_authors,
+     affiliations: affiliations,
+     corresponding: corresponding)
   }
-
+  
+  //let authors_parsed = parse_authors(authors)
+  
+  show link: set text(number-type: "lining", number-width: "tabular")
+  
+  show link: it => {
+    set text(fill: link-color)
+    it
+  }
+  
+  v(14mm + 12pt)
+  
+  par(
+    text(
+      weight: "bold",
+      size: sizes.title,
+      title
+    ),
+  )
+  
   if cols == 1 {
     doc
   } else {
     columns(cols, doc)
   }
+  
+  if signature == true {
+    v(4em, weak: true)
+  
+    let datestring = if date != "" {
+      [#date]
+    } else {
+      if dateformat != "" {
+        [#datetime.today().display(dateformat.replace("\\", ""))]
+      } else {
+        [#datetime.today().display("[day].[month].[year]")]
+      }
+    }
+    
+    let signaturestring = if date != "" {
+      [OsloMet – storbyuniversitetet, #datestring]
+    } else {
+      [OsloMet – storbyuniversitetet]
+    }
+    
+    let count = authors.len()
+    let ncols = calc.min(count, 3)
+    figure(
+      grid(
+        columns: (1fr,) * ncols,
+        row-gutter: 0.65em,//1.5em,
+        //grid.header(repeat: false, signaturestring),
+        grid.cell(align: left, colspan: ncols, signaturestring),
+        ..authors.map(author =>
+            align(left)[
+              #author.name#if author.affiliation-id != "" [#super(author.affiliation-id)] #if author.orcid != "" [#box(height: 10pt, baseline: 10%, link("https://orcid.org/" + author.orcid)[#image("orcid.svg")])] \
+              #author.affiliation-id-name \
+              #link("mailto:" + author.email.replace("\\",""))
+            ]
+        )
+      )
+    )
+  }
 }
-
-#set table(
-  inset: 6pt,
-  stroke: none
-)

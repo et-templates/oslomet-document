@@ -1,4 +1,4 @@
-title: Document
+title: OsloMet general document template
 author: Eirik Tengesdal
 version: 1.0.0
 quarto-required: ">=1.6.0"
@@ -8,4 +8,5 @@ contributes:
       template-partials:
         - typst-template.typ
         - typst-show.typ
-
+      #filters:
+      #  - debug-authors.lua

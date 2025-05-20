@@ -24,14 +24,35 @@ $if(by-author)$
 $for(by-author)$
 $if(it.name.literal)$
     ( name: [$it.name.literal$],
+      affiliation-id: [$for(it.affiliations)$$it.id$$sep$, $endfor$],
+      affiliation-id-name: [$for(it.affiliations)$#super("$it.id$")$it.name$$sep$, $endfor$],
       affiliation: [$for(it.affiliations)$$it.name$$sep$, $endfor$],
-      email: [$it.email$] ),
+      email: "$it.email$",
+      orcid: "$it.orcid$"
+    ),
 $endif$
 $endfor$
     ),
 $endif$
+$if(hide-signature)$
+  signature: false,
+$endif$
 $if(date)$
-  date: [$date$],
+  date: "$date$",
+$else$
+  date: "",
+$endif$
+$if(date-format-typst)$
+  dateformat: "$date-format-typst$",
+$endif$
+$if(institute)$
+  affiliations: (
+$for(institute)$
+    ( id: "$it.id$",
+      name: "$it.name$"
+    ),
+$endfor$
+    ),
 $endif$
 $if(lang)$
   lang: "$lang$",
