@@ -41,9 +41,7 @@ $if(date)$
   date: "$date$",
 $else$
   $if(date-format-typst)$
-    $if(date)$
-      date: datetime.today().display("$date-format-typst$".replace("\\", "")),
-    $endif$
+    date: datetime.today().display("$date-format-typst$".replace("\\", "")),
   $else$
     date: datetime.today().display("[day].[month].[year]"),
   $endif$
