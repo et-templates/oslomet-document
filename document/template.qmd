@@ -1,27 +1,18 @@
 ---
 title: Uoffisiell mal for OsloMet-dokumenter
 #hide-signature: true
+#hide-date: true
 #date: 2025-05-19
+#date: today
 #date-format: "DD.MM.YYYY"
 #date-format-typst: "[year]-[month]-[day]"
 
 authors:
   - name: Navn Navnesen
     email: navn.navnesen@oslomet.no
-    affiliations:
-      - ref: 1
   - name: Eirik Tengesdal
     email: eirik.tengesdal@oslomet.no
     orcid: 0000-0003-0599-8925
-    affiliations:
-      - ref: 1
-      - ref: 2
-
-affiliations:
-  - id: 1
-    name: OsloMet – storbyuniversitetet
-  - id: 2
-    name: Universitetet i Oslo
 
 format:
   #html: default
@@ -33,31 +24,19 @@ format:
 
 Dette dokumentet fremviser en uoffisiell mal for OsloMet-dokumenter. Malen er per nå laget for å generere Typst-PDF-er med Quarto[^1], og er basert på en offisiell OsloMet-mal for Word.[^2]
 
-[^1]: Portering til en ren Typst-mal er planlagt.
+[^1]: Portering til en ren Typst-mal kan komme i fremtiden.
 [^2]: Det er noen forskjeller. For eksempel er topptekstlogoen venstrejustert så den er helt på linje med teksten under. I sidetallsnummereringen f.o.m. side 2 er det i tillegg til aktuelt sidetall lagt til \`av {maks antall sider}\`. Grunnet begrensninger i nåværende versjon av Typst er også margene konsistente på tvers av alle sider (i Word-malen er det ulik førsteside). Enkelte Quarto-elementer er også tatt med, for eksempel kan man på slutten av dokumentet velge å vise en signaturblokk som inneholder OsloMet-navnet, dato (valgfritt) og forfatterinformasjon.
 
 ## Demonstrasjon av typografi:
 
 ## Overskrift, nivå 1
 
-<!-- {{< lipsum 1 >}} -->
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sagittis posuere ligula sit amet lacinia. Duis dignissim pellentesque magna, rhoncus congue sapien finibus mollis. Ut eu sem laoreet, vehicula ipsum in, convallis erat. Vestibulum magna sem, blandit pulvinar augue sit amet, auctor malesuada sapien. Nullam faucibus leo eget eros hendrerit, non laoreet ipsum lacinia. Curabitur cursus diam elit, non tempus ante volutpat a. Quisque hendrerit blandit purus non fringilla. Integer sit amet elit viverra ante dapibus semper. Vestibulum viverra rutrum enim, at luctus enim posuere eu. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+{{< lipsum 1-1 >}}
 
 ### Overskrift, nivå 2
 
-<!-- {{< lipsum 2 >}} -->
-
-Nunc ac dignissim magna. Vestibulum vitae egestas elit. Proin feugiat leo quis ante condimentum, eu ornare mauris feugiat. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Mauris cursus laoreet ex, dignissim bibendum est posuere iaculis. Suspendisse et maximus elit. In fringilla gravida ornare. Aenean id lectus pulvinar, sagittis felis nec, rutrum risus. Nam vel neque eu arcu blandit fringilla et in quam. Aliquam luctus est sit amet vestibulum eleifend. Phasellus elementum sagittis molestie. Proin tempor lorem arcu, at condimentum purus volutpat eu. Fusce et pellentesque ligula. Pellentesque id tellus at erat luctus fringilla. Suspendisse potenti.
-
-Etiam maximus accumsan gravida. Maecenas at nunc dignissim, euismod enim ac, bibendum ipsum. Maecenas vehicula velit in nisl aliquet ultricies. Nam eget massa interdum, maximus arcu vel, pretium erat. Maecenas sit amet tempor purus, vitae aliquet nunc. Vivamus cursus urna velit, eleifend dictum magna laoreet ut. Duis eu erat mollis, blandit magna id, tincidunt ipsum. Integer massa nibh, commodo eu ex vel, venenatis efficitur ligula. Integer convallis lacus elit, maximus eleifend lacus ornare ac. Vestibulum scelerisque viverra urna id lacinia. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Aenean eget enim at diam bibendum tincidunt eu non purus. Nullam id magna ultrices, sodales metus viverra, tempus turpis.
+{{< lipsum 2-3 >}}
 
 #### Overskrift, nivå 3
 
-<!-- {{< lipsum 3 >}} -->
-
-Duis ornare ex ac iaculis pretium. Maecenas sagittis odio id erat pharetra, sit amet consectetur quam sollicitudin. Vivamus pharetra quam purus, nec sagittis risus pretium at. Nullam feugiat, turpis ac accumsan interdum, sem tellus blandit neque, id vulputate diam quam semper nisl. Donec sit amet enim at neque porttitor aliquet. Phasellus facilisis nulla eget placerat eleifend. Vestibulum non egestas eros, eget lobortis ipsum. Nulla rutrum massa eget enim aliquam, id porttitor erat luctus. Nunc sagittis quis eros eu sagittis. Pellentesque dictum, erat at pellentesque sollicitudin, justo augue pulvinar metus, quis rutrum est mi nec felis. Vestibulum efficitur mi lorem, at elementum purus tincidunt a. Aliquam finibus enim magna, vitae pellentesque erat faucibus at. Nulla mauris tellus, imperdiet id lobortis et, dignissim condimentum ipsum. Morbi nulla orci, varius at aliquet sed, facilisis id tortor. Donec ut urna nisi.
-
-Aenean placerat luctus tortor vitae molestie. Nulla at aliquet nulla. Sed efficitur tellus orci, sed fringilla lectus laoreet eget. Vivamus maximus quam sit amet arcu dignissim, sed accumsan massa ullamcorper. Sed iaculis tincidunt feugiat. Nulla in est at nunc ultricies dictum ut vitae nunc. Aenean convallis vel diam at malesuada. Suspendisse arcu libero, vehicula tempus ultrices a, placerat sit amet tortor. Sed dictum id nulla commodo mattis. Aliquam mollis, nunc eu tristique faucibus, purus lacus tincidunt nulla, ac pretium lorem nunc ut enim. Curabitur eget mattis nisl, vitae sodales augue. Nam felis massa, bibendum sit amet nulla vel, vulputate rutrum lacus. Aenean convallis odio pharetra nulla mattis consequat.
-
-Ut ut condimentum augue, nec eleifend nisl. Sed facilisis egestas odio ac pretium. Pellentesque consequat magna sed venenatis sagittis. Vivamus feugiat lobortis magna vitae accumsan. Pellentesque euismod malesuada hendrerit. Ut non mauris non arcu condimentum sodales vitae vitae dolor. Nullam dapibus, velit eget lacinia rutrum, ipsum justo malesuada odio, et lobortis sapien magna vel lacus. Nulla purus neque, hendrerit non malesuada eget, mattis vel erat. Suspendisse potenti.
+{{< lipsum 4-6 >}}

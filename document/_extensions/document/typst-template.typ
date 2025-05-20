@@ -5,6 +5,7 @@
 #let article(
   title: "Tittel",
   signature: true,
+  show-date: true,
   authors: (),
   //affiliations: (),
   date: "",
@@ -219,15 +220,9 @@
   
     let datestring = if date != "" {
       [#date]
-    } else {
-      if dateformat != "" {
-        [#datetime.today().display(dateformat.replace("\\", ""))]
-      } else {
-        [#datetime.today().display("[day].[month].[year]")]
-      }
     }
     
-    let signaturestring = if date != "" {
+    let signaturestring = if date != "" and show-date {
       [OsloMet – storbyuniversitetet, #datestring]
     } else {
       [OsloMet – storbyuniversitetet]
@@ -243,8 +238,7 @@
         grid.cell(align: left, colspan: ncols, signaturestring),
         ..authors.map(author =>
             align(left)[
-              #author.name#if author.affiliation-id != "" [#super(author.affiliation-id)] #if author.orcid != "" [#box(height: 10pt, baseline: 10%, link("https://orcid.org/" + author.orcid)[#image("orcid.svg")])] \
-              #author.affiliation-id-name \
+              #author.name#if author.orcid != "" [#box(height: 10pt, baseline: 10%, link("https://orcid.org/" + author.orcid)[#image("orcid.svg")])] \
               #link("mailto:" + author.email.replace("\\",""))
             ]
         )

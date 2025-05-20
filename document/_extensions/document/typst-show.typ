@@ -24,9 +24,6 @@ $if(by-author)$
 $for(by-author)$
 $if(it.name.literal)$
     ( name: [$it.name.literal$],
-      affiliation-id: [$for(it.affiliations)$$it.id$$sep$, $endfor$],
-      affiliation-id-name: [$for(it.affiliations)$#super("$it.id$")$it.name$$sep$, $endfor$],
-      affiliation: [$for(it.affiliations)$$it.name$$sep$, $endfor$],
       email: "$it.email$",
       orcid: "$it.orcid$"
     ),
@@ -37,13 +34,19 @@ $endif$
 $if(hide-signature)$
   signature: false,
 $endif$
+$if(hide-date)$
+  show-date: false,
+$endif$
 $if(date)$
   date: "$date$",
 $else$
-  date: "",
-$endif$
-$if(date-format-typst)$
-  dateformat: "$date-format-typst$",
+  $if(date-format-typst)$
+    $if(date)$
+      date: datetime.today().display("$date-format-typst$".replace("\\", "")),
+    $endif$
+  $else$
+    date: datetime.today().display("[day].[month].[year]"),
+  $endif$
 $endif$
 $if(institute)$
   affiliations: (
