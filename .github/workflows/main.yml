@@ -1,0 +1,15 @@
+            - name: PDF To Markdown workflow
+  uses: northy/pdf-to-markdown-workflow@v1.2
+  with:
+    # Input PDF file
+    pdf_input: example.pdf
+    # Root output folder
+    #root_folder: # optional, default is 
+    # Output pngs folder
+    #output_folder: # optional, default is output_pngs
+    # Source markdown file
+    source_md: README.md
+    # Output markdown file
+    #output_md: # optional, default is README.md
+    # Line end
+    #line_end: # optional, default is ---\n
