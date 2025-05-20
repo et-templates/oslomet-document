@@ -33,7 +33,7 @@ jobs:
           # Root output folder
           #root_folder: # optional, default is 
           # Output pngs folder
-          output_folder: .github/workflows/output_pngs # optional, default is output_pngs
+          #output_folder: .github/workflows/output_pngs # optional, default is output_pngs
           # Source markdown file
           source_md: README.md
           # Output markdown file
