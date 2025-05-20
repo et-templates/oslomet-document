@@ -8,13 +8,6 @@ The template has been tailored for Norwegian.
 ## Example PDF
 View an example of the output PDF here:
 
-<!-- PDF-TO-MARKDOWN:START -->
-![Page 1](output_pngs/page1.png "Page 1")
-
-![Page 2](output_pngs/page2.png "Page 2")
-
-<!-- PDF-TO-MARKDOWN:END -->
-
 ## Installation
 ### Option (1): Install the template for new documents
 
@@ -108,3 +101,9 @@ Alternatively, if you want to keep the signature but hide the default date inser
 hide-date: true
 ---
 ```
+
+## Example PDF
+View an example of the output [PDF](example.pdf) below:
+
+<!-- PDF-TO-MARKDOWN:START -->
+<!-- PDF-TO-MARKDOWN:END -->
