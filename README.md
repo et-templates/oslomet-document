@@ -1,9 +1,4 @@
 # OsloMet Document Template (Quarto>Typst)
-![Page 1](output_pngs/page1.png "Page 1")
----
-![Page 2](output_pngs/page2.png "Page 2")
----
-
 This is an unofficial Quarto template that allows you to create generic OsloMet documents. As of now, it is designed to generate Typst PDFs, and is inspired by an official OsloMet template for Microsoft Word.
 
 In the future, additional templates might be added (and organised along the lines of [https://github.com/quarto-ext/typst-templates](https://github.com/quarto-ext/typst-templates)), and a port to Typst might also be created.
@@ -13,7 +8,8 @@ The template has been tailored for Norwegian.
 ## Example PDF
 View an example of the output PDF here:
 
-<object data="example.pdf" width="1000" height="1000" type='application/pdf'/>
+<!-- PDF-TO-MARKDOWN:START -->
+<!-- PDF-TO-MARKDOWN:END -->
 
 ## Installation
 ### Option (1): Install the template for new documents
