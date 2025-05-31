@@ -130,5 +130,5 @@ Department of Linguistics and Scandinavian Studies (ILN)<br />
 University of Oslo<br />
 eirik.tengesdal@iln.uio.no
 
-ORCID iD: [0000-0003-0599-8925](https://orcid.org/0000-0003-0599-8925)<br />
+<img src="images/ORCID-iD_icon_vector.svg" alt="ORCID iD" width="16" height="16"> [0000-0003-0599-8925](https://orcid.org/0000-0003-0599-8925)<br />
 https://eiriktengesdal.no/
