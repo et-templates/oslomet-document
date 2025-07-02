@@ -8,3 +8,7 @@ contributes:
       template-partials:
         - typst-template.typ
         - typst-show.typ
+      format-resources:
+        - "images/ORCID-iD_icon_vector.svg"
+        - "images/oslomet-logo-footer.svg"
+        - "images/oslomet-logo-header.svg"
